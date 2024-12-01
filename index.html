@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Progress Circle</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="container-circle">
+        <svg
+          class="percent_circle"
+          viewBox="0 0 130 130"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <circle
+            class="circle background_circle"
+            cx="50%"
+            cy="50%"
+            r="55"
+          ></circle>
+          <circle
+            class="circle foreground_circle"
+            cx="50%"
+            cy="50%"
+            r="55"
+          ></circle>
+        </svg>
+      </div>
+      <div class="container-item">
+        <div class="progress_item">
+          <input
+            id="input_percent"
+            name="input_percent"
+            type="number"
+            class="input_percent"
+            min="0"
+            max="100"
+            value="40"
+          />
+          <label class="progress_name">Value</label>
+        </div>
+        <div class="progress_item">
+          <label class="checkbox" for="checkbox_animate">
+            <input  id="checkbox_animate"
+            name="checkbox_animate"
+            type="checkbox"
+            class="progress_checkbox">
+            <div class="progress_switch">
+              <span class="circle_icon"></span>
+              <span class="bar"></span>
+            </div>
+            <span class="progress_name">Animate</span>
+          </label>
+        </div>
+        <div class="progress_item">
+          <label class="checkbox" for="checkbox_hidden">
+            <input  id="checkbox_hidden"
+            name="checkbox_animate"
+            type="checkbox"
+            class="progress_checkbox">
+            <div class="progress_switch">
+              <span class="circle_icon"></span>
+              <span class="bar"></span>
+            </div>
+            <span class="progress_name">Hide</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <script defer src="app.js"></script>
+  </body>
+</html>
