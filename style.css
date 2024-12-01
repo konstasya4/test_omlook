@@ -1,0 +1,192 @@
+@font-face {
+  font-family: "grotesk";
+  src: url("./fonts/drescher-grotesk-bt-smallsizes.ttf") format("truetype");
+  font-style:normal;
+  font-weight:100;
+}
+
+html, body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+}
+
+.percent_circle {
+  width: 40vw;
+  height: 40vw;
+  max-width: 200px;
+  max-height: 200px;
+  transform: rotate(-90deg);
+}
+
+.container-circle {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  fill: transparent;
+  stroke-width: 10px;
+}
+
+.background_circle {
+  stroke: #cac9c9;
+}
+
+.container-item {
+  margin-top: 10vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input_percent {
+  text-align: center;
+  border-radius: 4vw;
+  border: 2px solid #c9c8cb;
+  color: #c9c8cb;
+  width: 50px;
+  height: 25px;
+  font-family: "grotesk";
+}
+
+.progress_item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  justify-content: left;
+}
+
+.checkbox {
+  cursor: pointer;
+  display: flex;
+  align-items: center
+}
+
+.progress_switch {
+  display: inline-block;
+  background: #cac8c9;
+  border-radius: 16px;
+  width: 58px;
+  height: 32px;
+  position: relative;
+  vertical-align: middle;
+  transition: background 0.25s;
+}
+
+.progress_switch .circle_icon,
+.progress_switch .bar {
+  position: absolute;
+  top: 50%;  
+  transform: translateY(-50%); 
+}
+
+.progress_switch .circle_icon {
+  left: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid #858585;
+  opacity: 0; 
+}
+
+.progress_switch .bar {
+  margin-left: 5px;
+  width: 2px;
+  height: 15px;
+  background-color: white;
+  border-radius: 2px;
+  opacity: 0;  
+}
+
+.progress_switch:before, .progress_switch:after {
+  content: "";
+}
+
+.progress_switch:before {
+  display: block;
+  background: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: left 0.25s;
+}
+
+.progress_checkbox:checked + .progress_switch .bar {
+  opacity: 1;  
+  left: 8px; 
+}
+
+.progress_checkbox:checked + .progress_switch {
+  background: #d6edef;
+}
+
+.progress_checkbox:checked + .progress_switch:before {
+  left: 30px;
+}
+.progress_checkbox:not(:checked) + .progress_switch {
+  background: #cac9c9;
+}
+
+.progress_checkbox:not(:checked) + .progress_switch .circle_icon {
+  left: 60%; 
+  opacity: 1;
+}
+
+.progress_checkbox:not(:checked) + .progress_switch .bar {
+  opacity: 0;
+}
+
+.progress_checkbox {
+  position: absolute;
+}
+
+.progress_name {
+  margin-left: 3vw;
+  font-size: 18px;
+  font-family: "grotesk"
+}
+
+@keyframes dash-move {
+  0% {
+    stroke-dashoffset: var(--dash-offset-start, 0);
+  }
+
+  100% {
+    stroke-dashoffset: var(--dash-offset-end, -407);
+  }
+}
+
+.foreground_circle {
+  stroke: #d6edef;
+  stroke-dasharray: 0 407;
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+.animated {
+  animation: dash-move 10s linear infinite;
+}
+
+@media (orientation: landscape) {
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .container-item {
+    margin-left: 10vw;
+    margin-top: 0;
+  }
+}
